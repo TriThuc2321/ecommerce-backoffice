@@ -106,6 +106,7 @@ const config = [
         },
       ],
       '@typescript-eslint/consistent-type-imports': 'error',
+      'tailwindcss/classnames-order': 'off',
     },
   },
   ...compat.extends('plugin:testing-library/react').map(config => ({

@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background h-screen w-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <HeroUIProvider>
           <ThemeProviders>{children}</ThemeProviders>

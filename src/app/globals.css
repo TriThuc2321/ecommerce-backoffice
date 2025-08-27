@@ -9,11 +9,19 @@
 
 @layer base {
   html {
-    --color-primary: #82f8ff;
-    --color-secondary: #172035;
-    --color-background: #0b1621;
-    --color-typography: #fefefe;
-    --color-typography-secondary: #585858;
+    --color-primary: #19677a;
+    --color-secondary: #dde8eb;
+    --color-background: #ecf1f3;
+    --color-typography: #070e28;
+    --color-typography-secondary: #19677a;
+    --heroui-primary-foreground: 0, 0%, 100%;
+    --heroui-secondary-foreground: 192, 66%, 29%;
+
+    @apply m-0 h-screen w-screen p-0;
+  }
+
+  body {
+    @apply bg-background m-0 h-full w-full overflow-hidden p-0;
   }
 }
 

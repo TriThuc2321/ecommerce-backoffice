@@ -24,13 +24,13 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
     <>
       <div
         className={classNames(
-          'absolute -left-[300px] z-[1001] flex h-full max-w-[260px] min-w-[260px] flex-col rounded-2xl bg-white p-4 shadow-2xl transition-all !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
+          'absolute -left-[300px] z-[1001] flex h-full max-w-[260px] min-w-[260px] flex-col rounded-2xl transition-all !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
           { 'left-[1rem]': isOpen },
         )}
       >
         <Link href="/">
           <Image
-            className="mx-auto size-12 rounded-md md:size-16"
+            className="mx-auto mt-2 size-12 rounded-md md:size-16"
             src={logo}
             alt="Logo"
           />
@@ -88,11 +88,10 @@ const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
 
   return (
     <Button
-      className={classNames('w-full justify-start gap-6 py-6', {
-        'font-semibold': isActive,
+      className={classNames('w-full justify-start gap-6 rounded-l-none py-6', {
+        'bg-primary-900 font-semibold': isActive,
       })}
-      color={isActive ? 'primary' : 'default'}
-      variant={isActive ? 'flat' : 'light'}
+      color="primary"
       as={Link}
       href={route}
       onClick={() => handleOpen(false)}

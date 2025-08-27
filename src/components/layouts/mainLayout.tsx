@@ -1,6 +1,7 @@
 'use client';
 
 import { type ReactNode, useState } from 'react';
+import Header from './header';
 import Sidebar from './sidebar';
 
 type MainLayoutProps = {
@@ -12,12 +13,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const handleSetIsOpen = (isOpen: boolean) => setIsOpen(isOpen);
 
   return (
-    <div className="bg-primary-50 flex h-screen w-full flex-col gap-4 p-4 pr-0 md:flex-row">
+    <div className="bg-primary flex h-screen w-full flex-col gap-4 p-3 pl-0 md:flex-row">
       <Sidebar isOpen={isOpen} handleOpen={handleSetIsOpen} />
 
-      <div className="flex w-full flex-col gap-4 overflow-x-auto overflow-y-hidden pr-4">
-        <p>Header</p>
-        {children}
+      <div className="flex h-full w-full flex-col gap-4">
+        <Header />
+        <div className="bg-primary-50 flex h-full w-full flex-col gap-4 overflow-x-auto overflow-y-hidden rounded-2xl p-4">
+          {children}
+        </div>
       </div>
     </div>
   );

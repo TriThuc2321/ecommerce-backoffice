@@ -13,7 +13,7 @@ const ThemeSwitch = () => {
     'h-8 min-h-8 w-8 min-w-8 rounded-full border-typography-secondary';
 
   return (
-    <div className="border-typography-secondary absolute right-4 bottom-4 z-50 flex gap-2 rounded-full border p-1">
+    <div className="absolute right-4 bottom-4 z-50 flex gap-2 rounded-full border p-1">
       <Button
         className={classNames(buttonClass, {
           'bg-typography-secondary': theme === ThemeMode.LIGHT,
@@ -22,13 +22,7 @@ const ThemeSwitch = () => {
         variant="light"
         onClick={() => setTheme(ThemeMode.LIGHT)}
       >
-        <IoSunnyOutline
-          size={16}
-          className={classNames({
-            'text-typography': theme === ThemeMode.LIGHT,
-            'text-typography-secondary': theme !== ThemeMode.LIGHT,
-          })}
-        />
+        <IoSunnyOutline size={16} />
       </Button>
 
       <Button
@@ -39,13 +33,7 @@ const ThemeSwitch = () => {
         isIconOnly
         variant="light"
       >
-        <HiOutlineComputerDesktop
-          size={16}
-          className={classNames({
-            'text-typography': theme === ThemeMode.SYSTEM,
-            'text-typography-secondary': theme !== ThemeMode.SYSTEM,
-          })}
-        />
+        <HiOutlineComputerDesktop size={16} />
       </Button>
 
       <Button
@@ -56,13 +44,7 @@ const ThemeSwitch = () => {
         isIconOnly
         variant="light"
       >
-        <IoMoonOutline
-          size={16}
-          className={classNames({
-            'text-typography': theme === ThemeMode.DARK,
-            'text-typography-secondary': theme !== ThemeMode.DARK,
-          })}
-        />
+        <IoMoonOutline size={16} />
       </Button>
     </div>
   );

@@ -1,37 +1,95 @@
-export interface IDefaultRequest {
-  page: number;
-  take: number;
-  search?: string;
-}
-
-export interface IMeta {
-  page: number;
-  take: number;
-  totalCount: number;
-}
-
-export interface IMessage {
-  message: string;
-  statusCode: number;
-}
-
-export interface IErrorCustom extends Error {
-  code?: string;
-}
-
-export interface IMenuItem {
-  id: number;
-  title: string;
-  route: string;
-}
-
-export enum LanguageCode {
-  EN = 'en',
-  VI = 'vi',
-}
+import type { User } from './user';
 
 export enum ThemeMode {
   LIGHT = 'light',
   DARK = 'dark',
   SYSTEM = 'system',
+}
+
+export enum SortDirection {
+  ASC = 'ascending',
+  DESC = 'descending',
+}
+
+export enum Provider {
+  GOOGLE = 'google',
+  FACEBOOK = 'facebook',
+  LOCAL = 'local',
+}
+
+export type CookieStoreObj = {
+  name: string;
+  value: string;
+};
+
+export type Metadata = Partial<{
+  page: number;
+  take: number;
+  totalCount: number;
+}>;
+
+export type Params = Partial<{
+  page: number;
+  take: number;
+  keyword: string;
+  sort: string;
+  direction: SortDirection;
+}>;
+
+export type Response<T> = Partial<{
+  data: T;
+  meta: Metadata;
+}>;
+
+export type Nullable<T> = T | null;
+
+export type Audit = Partial<{
+  createdAt: string;
+  createdById: string;
+  createdBy: User;
+  updatedAt: string;
+  updatedById: string;
+  updatedBy: User;
+  deletedAt: string;
+  deletedById: string;
+}>;
+
+export type Message = Partial<{
+  message: string;
+  statusCode: number;
+}>;
+
+export type Color =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning';
+
+export type Placement =
+  | 'top'
+  | 'top-end'
+  | 'top-start'
+  | 'right'
+  | 'right-end'
+  | 'right-start'
+  | 'bottom'
+  | 'bottom-end'
+  | 'bottom-start'
+  | 'left'
+  | 'left-end'
+  | 'left-start';
+
+export enum DurationUnit {
+  DAY = 'day',
+  HOUR = 'hour',
+  WEEK = 'week',
+  MONTH = 'month',
+}
+
+export enum FileType {
+  IMAGE = 'image',
+  DOC = 'doc',
+  PDF = 'pdf',
 }

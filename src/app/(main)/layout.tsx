@@ -1,11 +1,24 @@
-import { ThemeSwitch } from '@/components/layouts';
-import type { ReactNode } from 'react';
+import MainLayoutClient from '@/components/layouts/mainLayout';
+import Loader from '@/components/shared/Loader';
+import { AccessProvider } from '@/providers';
+import { type ReactNode, Suspense } from 'react';
 
-export default function MainLayout({ children }: { children: ReactNode }) {
+type MainLayoutProps = {
+  children: ReactNode;
+};
+
+export default function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div>
-      {children}
-      <ThemeSwitch />
-    </div>
+    <AccessProvider>
+      <Suspense
+        fallback={
+          <div className="flex h-screen w-screen items-center justify-center">
+            <Loader />
+          </div>
+        }
+      >
+        <MainLayoutClient>{children}</MainLayoutClient>
+      </Suspense>
+    </AccessProvider>
   );
 }

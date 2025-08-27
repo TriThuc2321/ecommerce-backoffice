@@ -3,7 +3,11 @@
 import { ThemeMode } from '@/types/common';
 import { ThemeProvider } from 'next-themes';
 
-export function ThemeProviders({ children }: { children: React.ReactNode }) {
+type ThemeProvidersProps = {
+  children: React.ReactNode;
+};
+
+export function ThemeProviders({ children }: ThemeProvidersProps) {
   return (
     <ThemeProvider
       attribute="data-theme"

@@ -22,7 +22,7 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
     <>
       <div
         className={classNames(
-          'absolute -left-[300px] z-[1001] flex h-full max-w-[280px] min-w-[280px] flex-col bg-white p-2 transition-all !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
+          'bg-primary-50 absolute -left-[300px] z-[1001] flex h-full max-w-[280px] min-w-[280px] flex-col p-2 transition-transform !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
           { 'left-[1rem]': isOpen },
         )}
       >
@@ -32,7 +32,7 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
             src={logo}
             alt="Logo"
           /> */}
-          <p className="text-primary mt-4 text-center text-2xl font-bold">
+          <p className="text-primary dark:text-foreground mt-4 text-center text-2xl font-bold">
             Toards
           </p>
         </Link>
@@ -52,13 +52,13 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
         <div className="mt-auto flex justify-center pt-4">
           <Button
             onClick={() => {}}
-            className="flex w-full items-center justify-start gap-6 border py-6"
+            className="dark:border-foreground flex w-full items-center justify-start gap-6 border py-6"
             data-testid="logout-button"
             color="primary"
             variant="bordered"
           >
             <IoIosLogOut className="text-xl" />
-            <p className="text-base font-medium">Logout</p>
+            <p className="dark:text-foreground text-base font-medium">Logout</p>
           </Button>
         </div>
       </div>
@@ -90,7 +90,7 @@ const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
   return (
     <Button
       className={classNames(
-        'w-full justify-start gap-6 rounded-lg py-6 font-medium',
+        'dark:text-foreground w-full justify-start gap-6 rounded-lg py-6 font-medium',
         {
           'font-bold': isActive,
         },

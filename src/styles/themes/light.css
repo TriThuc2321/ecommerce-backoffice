@@ -1,9 +1,0 @@
-html[data-theme='light'] {
-  --color-primary: #19677a;
-  --color-secondary: #dde8eb;
-  --color-background: #ecf1f3;
-  --color-typography: #070e28;
-  --color-typography-secondary: #19677a;
-  --heroui-primary-foreground: 0, 0%, 100%;
-  --heroui-secondary-foreground: 192, 66%, 29%;
-}

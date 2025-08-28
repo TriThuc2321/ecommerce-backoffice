@@ -4,17 +4,12 @@
 @plugin '../heroui.ts';
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 
-/* @import '../styles/themes/dark.css';
-@import '../styles/themes/light.css'; */
-
 @layer base {
   html {
-    --color-primary: #19677a;
-
     @apply m-0 p-0;
   }
 
   body {
-    @apply text-primary-900 m-0 h-full w-full p-0;
+    @apply text-foreground m-0 h-full w-full p-0;
   }
 }

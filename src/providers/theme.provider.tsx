@@ -10,7 +10,7 @@ type ThemeProvidersProps = {
 export function ThemeProviders({ children }: ThemeProvidersProps) {
   return (
     <ThemeProvider
-      attribute="data-theme"
+      attribute="class"
       themes={[ThemeMode.DARK, ThemeMode.LIGHT, ThemeMode.SYSTEM]}
       defaultTheme={ThemeMode.SYSTEM}
       enableSystem

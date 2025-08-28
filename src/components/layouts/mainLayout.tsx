@@ -13,14 +13,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const handleSetIsOpen = (isOpen: boolean) => setIsOpen(isOpen);
 
   return (
-    <div className="bg-primary flex h-screen w-full flex-col gap-4 p-3 pl-0 md:flex-row">
+    <div className="flex h-screen w-full flex-col overflow-y-hidden pl-0 md:flex-row">
       <Sidebar isOpen={isOpen} handleOpen={handleSetIsOpen} />
 
-      <div className="flex h-full w-full flex-col gap-4">
+      <div className="bg-primary-50 m-2 ml-0 flex w-full flex-col gap-4 rounded-xl p-6">
         <Header />
-        <div className="bg-primary-50 flex h-full w-full flex-col gap-4 overflow-x-auto overflow-y-hidden rounded-2xl p-4">
-          {children}
-        </div>
+        {children}
       </div>
     </div>
   );

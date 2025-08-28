@@ -1,6 +1,5 @@
 'use client';
 
-import logo from '@/assets/images/logo.jpg';
 import RenderIf from '@/components/shared/RenderIf';
 import { Can } from '@/configs/casl/can.config';
 import { MENU_LIST } from '@/configs/menu';
@@ -8,7 +7,6 @@ import { PermissionAction } from '@/types/auth';
 import type { SubjectType } from '@casl/ability';
 import { Button } from '@heroui/button';
 import classNames from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IoIosLogOut } from 'react-icons/io';
@@ -24,19 +22,22 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
     <>
       <div
         className={classNames(
-          'absolute -left-[300px] z-[1001] flex h-full max-w-[260px] min-w-[260px] flex-col rounded-2xl transition-all !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
+          'absolute -left-[300px] z-[1001] flex h-full max-w-[280px] min-w-[280px] flex-col bg-white p-2 transition-all !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
           { 'left-[1rem]': isOpen },
         )}
       >
         <Link href="/">
-          <Image
+          {/* <Image
             className="mx-auto mt-2 size-12 rounded-md md:size-16"
             src={logo}
             alt="Logo"
-          />
+          /> */}
+          <p className="text-primary mt-4 text-center text-2xl font-bold">
+            Toards
+          </p>
         </Link>
 
-        <div className="mt-4 flex h-full flex-col gap-4 overflow-y-auto py-4">
+        <div className="mt-4 flex h-full flex-col gap-2 overflow-y-auto py-4">
           {MENU_LIST.map(menu => (
             <Can
               I={PermissionAction.Read}
@@ -88,16 +89,20 @@ const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
 
   return (
     <Button
-      className={classNames('w-full justify-start gap-6 rounded-l-none py-6', {
-        'bg-primary-900 font-semibold': isActive,
-      })}
+      className={classNames(
+        'w-full justify-start gap-6 rounded-lg py-6 font-medium',
+        {
+          'font-bold': isActive,
+        },
+      )}
       color="primary"
+      variant={isActive ? 'flat' : 'light'}
       as={Link}
       href={route}
       onClick={() => handleOpen(false)}
     >
       <Icon className="text-xl" />
-      <p className="text-base">{title}</p>
+      <p className="text-sm">{title}</p>
     </Button>
   );
 };

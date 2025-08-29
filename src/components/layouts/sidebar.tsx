@@ -1,7 +1,6 @@
 'use client';
 
 import classNames from 'classnames';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IoIosLogOut } from 'react-icons/io';
 import type { IconType } from 'react-icons/lib';
@@ -12,6 +11,7 @@ import { Button } from '@heroui/button';
 import RenderIf from '@/components/shared/RenderIf';
 import { Can } from '@/configs/casl/can.config';
 import { MENU_LIST } from '@/configs/menu';
+import { Link } from '@/i18n/navigation';
 import { PermissionAction } from '@/types/auth';
 
 interface ISideBarProps {
@@ -85,9 +85,9 @@ type IMenuItem = {
 
 const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
   const currentRoute = usePathname();
+  const routeWithoutLocale = `/${currentRoute.split('/').slice(2).join('/')}`;
 
-  const isActive =
-    route === '/' ? route === currentRoute : currentRoute?.startsWith(route);
+  const isActive = route === routeWithoutLocale;
 
   return (
     <Button
@@ -101,7 +101,7 @@ const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
       variant={isActive ? 'flat' : 'light'}
       as={Link}
       href={route}
-      onClick={() => handleOpen(false)}
+      onPress={() => handleOpen(false)}
     >
       <Icon className="text-xl" />
       <p className="text-sm">{title}</p>

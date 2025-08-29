@@ -1,6 +1,7 @@
 'use client';
 
 import classNames from 'classnames';
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -11,7 +12,7 @@ import { LuChevronLeft } from 'react-icons/lu';
 import type { SubjectType } from '@casl/ability';
 import { Button } from '@heroui/button';
 
-import logo from '@/assets/images/logo.jpg';
+import logo from '@/assets/images/logo.png';
 import RenderIf from '@/components/shared/RenderIf';
 import { Can } from '@/configs/casl/can.config';
 import { MENU_LIST } from '@/configs/menu';
@@ -24,7 +25,14 @@ interface ISideBarProps {
 }
 
 export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
-  const [showFullMenu, setShowFullMenu] = useState(false);
+  const [showFullMenu, setShowFullMenu] = useState(
+    Cookies.get('showFullMenu') === 'true',
+  );
+
+  const handleShowFullMenu = (isOpen: boolean) => {
+    setShowFullMenu(isOpen);
+    Cookies.set('showFullMenu', isOpen.toString());
+  };
 
   return (
     <>
@@ -48,19 +56,19 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
               'rotate-180': !showFullMenu,
             },
           )}
-          onPress={() => setShowFullMenu(prev => !prev)}
+          onPress={() => handleShowFullMenu(!showFullMenu)}
         >
           <LuChevronLeft className="text-lg" />
         </Button>
         <Link href="/">
           <Image
-            className="mx-auto mt-6 size-10 rounded-md"
+            className="mx-auto mt-4 size-14 rounded-md"
             src={logo}
             alt="Logo"
           />
         </Link>
 
-        <div className="mt-4 flex h-full flex-col gap-2 overflow-y-auto py-4">
+        <div className="flex h-full flex-col gap-2 overflow-y-auto py-4">
           {MENU_LIST.map(menu => (
             <Can
               I={PermissionAction.Read}

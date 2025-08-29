@@ -15,21 +15,6 @@ const nextConfig: NextConfig = {
 
     return config;
   },
-  experimental: {
-    serverActions: {
-      allowedOrigins: [''],
-    },
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.ts',
-        },
-      },
-    },
-    authInterrupts: true,
-    optimizePackageImports: ['chart.js', 'react-chartjs-2'],
-  },
 };
 
 export default withNextIntl(nextConfig);

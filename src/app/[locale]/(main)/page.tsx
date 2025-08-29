@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 export default async function Page() {
@@ -9,3 +10,7 @@ export default async function Page() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Home',
+};

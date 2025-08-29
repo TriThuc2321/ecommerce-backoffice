@@ -1,16 +1,11 @@
-import { BsAppIndicator } from 'react-icons/bs';
-import { GiMatterStates } from 'react-icons/gi';
-import { GoTasklist } from 'react-icons/go';
-import { IoBarChartOutline } from 'react-icons/io5';
 import {
-  LuKeyRound,
-  LuLayoutDashboard,
-  LuRadius,
-  LuUser,
-  LuUsers,
-} from 'react-icons/lu';
-import { MdOutlineWebhook } from 'react-icons/md';
-import { TbTemplate } from 'react-icons/tb';
+  IoBagOutline,
+  IoDocumentTextOutline,
+  IoFileTrayFullOutline,
+  IoLayersOutline,
+  IoNewspaperOutline,
+} from 'react-icons/io5';
+import { LuLayoutDashboard, LuRadius, LuUsers } from 'react-icons/lu';
 
 import { SubjectName } from '@/types/auth';
 
@@ -24,72 +19,51 @@ export const MENU_LIST = [
   },
   {
     id: 1,
-    title: 'Tickets',
-    route: '/tickets',
-    icon: BsAppIndicator,
-    object: SubjectName.Tickets,
+    title: 'Products',
+    route: '/products',
+    icon: IoFileTrayFullOutline,
+    object: SubjectName.Products,
   },
   {
     id: 2,
-    title: 'States',
-    route: '/states',
-    icon: GiMatterStates,
-    object: SubjectName.States,
+    title: 'Categories',
+    route: '/categories',
+    icon: IoLayersOutline,
+    object: SubjectName.Categories,
   },
   {
     id: 4,
-    title: 'My tasks',
-    icon: GoTasklist,
-    route: '/tasks',
-    object: SubjectName.Tasks,
+    title: 'Orders',
+    icon: IoBagOutline,
+    route: '/orders',
+    object: SubjectName.Orders,
   },
   {
     id: 5,
-    title: 'Users',
-    route: '/users',
-    icon: LuUser,
-    object: SubjectName.Users,
+    title: 'Invoices',
+    route: '/invoices',
+    icon: IoDocumentTextOutline,
+    object: SubjectName.Invoices,
   },
   {
     id: 6,
-    title: 'Customers',
-    icon: LuUsers,
-    route: '/customers',
-    object: SubjectName.Customers,
+    title: 'Blogs',
+    icon: IoNewspaperOutline,
+    route: '/blogs',
+    object: SubjectName.Blogs,
   },
   {
     id: 7,
-    title: 'Configurations',
-    route: '/pipeline-configurations',
-    icon: TbTemplate,
-    object: SubjectName.StatePipelines,
+    title: 'Users',
+    route: '/users',
+    icon: LuUsers,
+    object: SubjectName.Users,
   },
   {
     id: 8,
-    title: 'Reports',
-    route: '/reports',
-    icon: IoBarChartOutline,
-    object: SubjectName.Reports,
-  },
-  {
-    id: 9,
     title: 'Roles',
     route: '/roles',
     icon: LuRadius,
-    object: SubjectName.Roles,
-  },
-  {
-    id: 10,
-    title: 'API Keys',
-    route: '/api-keys',
-    icon: LuKeyRound,
-    object: SubjectName.Roles,
-  },
-  {
-    id: 11,
-    title: 'Webhooks',
-    route: '/webhooks',
-    icon: MdOutlineWebhook,
     object: SubjectName.Roles,
   },
 ];

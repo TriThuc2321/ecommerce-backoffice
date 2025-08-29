@@ -1,11 +1,13 @@
 'use client';
 
-import { ThemeMode } from '@/types/common';
-import { Button } from '@heroui/button';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
 import { HiOutlineComputerDesktop } from 'react-icons/hi2';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+
+import { Button } from '@heroui/button';
+
+import { ThemeMode } from '@/types/common';
 
 const ThemeSwitch = () => {
   const { setTheme, theme } = useTheme();

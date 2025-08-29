@@ -1,6 +1,7 @@
 'use client';
 
 import { type ReactNode, useState } from 'react';
+
 import { ThemeSwitch } from '.';
 import Header from './header';
 import Sidebar from './sidebar';

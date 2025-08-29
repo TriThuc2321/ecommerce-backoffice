@@ -1,10 +1,12 @@
-import { routing } from '@/i18n/routing';
-import { AccessProvider, HeroUIProvider, ThemeProviders } from '@/providers';
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
+
+import { routing } from '@/i18n/routing';
+import { AccessProvider, HeroUIProvider, ThemeProviders } from '@/providers';
+
 import '../globals.css';
 
 const geistSans = Geist({

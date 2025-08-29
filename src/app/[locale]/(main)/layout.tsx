@@ -1,7 +1,8 @@
+import { type ReactNode, Suspense } from 'react';
+
 import MainLayoutClient from '@/components/layouts/mainLayout';
 import Loader from '@/components/shared/Loader';
 import { AccessProvider } from '@/providers';
-import { type ReactNode, Suspense } from 'react';
 
 type MainLayoutProps = {
   children: ReactNode;

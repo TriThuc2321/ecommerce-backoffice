@@ -11,8 +11,8 @@
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
   ],
-  "importOrderSeparation": false,
+  "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrderCaseInsensitive": true,
-  "importOrder": ["^\\u0000", "^node:", "^@?\\w", "^\\."]
+  "importOrder": ["^@(?!/).*", "^@/.*", "^[./]"]
 }

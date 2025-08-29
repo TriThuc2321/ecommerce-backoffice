@@ -1,7 +1,8 @@
 'use client';
 
-import { ThemeMode } from '@/types/common';
 import { ThemeProvider } from 'next-themes';
+
+import { ThemeMode } from '@/types/common';
 
 type ThemeProvidersProps = {
   children: React.ReactNode;

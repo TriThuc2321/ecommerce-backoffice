@@ -1,4 +1,3 @@
-import { SubjectName } from '@/types/auth';
 import { BsAppIndicator } from 'react-icons/bs';
 import { GiMatterStates } from 'react-icons/gi';
 import { GoTasklist } from 'react-icons/go';
@@ -12,6 +11,8 @@ import {
 } from 'react-icons/lu';
 import { MdOutlineWebhook } from 'react-icons/md';
 import { TbTemplate } from 'react-icons/tb';
+
+import { SubjectName } from '@/types/auth';
 
 export const MENU_LIST = [
   {

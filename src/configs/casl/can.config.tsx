@@ -1,8 +1,9 @@
 'use client';
 
+import { createContext, useContext } from 'react';
+
 import type { AbilityTuple, MongoAbility, MongoQuery } from '@casl/ability';
 import { createContextualCan } from '@casl/react';
-import { createContext, useContext } from 'react';
 
 export const AbilityContext = createContext<
   MongoAbility<AbilityTuple, MongoQuery>

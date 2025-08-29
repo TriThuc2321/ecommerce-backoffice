@@ -1,13 +1,17 @@
 'use client';
 
 import classNames from 'classnames';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { IoIosLogOut } from 'react-icons/io';
 import type { IconType } from 'react-icons/lib';
+import { LuChevronLeft } from 'react-icons/lu';
 
 import type { SubjectType } from '@casl/ability';
 import { Button } from '@heroui/button';
 
+import logo from '@/assets/images/logo.jpg';
 import RenderIf from '@/components/shared/RenderIf';
 import { Can } from '@/configs/casl/can.config';
 import { MENU_LIST } from '@/configs/menu';
@@ -20,23 +24,40 @@ interface ISideBarProps {
 }
 
 export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
+  const [showFullMenu, setShowFullMenu] = useState(false);
+
   return (
     <>
       <div
         className={classNames(
-          'bg-primary-50 absolute -left-[300px] z-[1001] flex h-full max-w-[280px] min-w-[280px] flex-col p-2 transition-transform !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
-          { 'left-[1rem]': isOpen },
+          'bg-primary-50 transition-width absolute -left-[300px] z-[1001] flex h-full flex-col p-2 transition-transform !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
+          {
+            'left-[1rem]': isOpen,
+            'w-[76px]': !showFullMenu,
+            'w-[320px]': showFullMenu,
+          },
         )}
       >
+        <Button
+          isIconOnly
+          color="primary"
+          variant="solid"
+          className={classNames(
+            'absolute top-10 -right-3 size-6 min-w-6 rounded-full',
+            {
+              'rotate-180': !showFullMenu,
+            },
+          )}
+          onPress={() => setShowFullMenu(prev => !prev)}
+        >
+          <LuChevronLeft className="text-lg" />
+        </Button>
         <Link href="/">
-          {/* <Image
-            className="mx-auto mt-2 size-12 rounded-md md:size-16"
+          <Image
+            className="mx-auto mt-6 size-10 rounded-md"
             src={logo}
             alt="Logo"
-          /> */}
-          <p className="text-primary dark:text-foreground mt-4 text-center text-2xl font-bold">
-            Toards
-          </p>
+          />
         </Link>
 
         <div className="mt-4 flex h-full flex-col gap-2 overflow-y-auto py-4">
@@ -46,7 +67,11 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
               a={menu.object as SubjectType}
               key={menu.id}
             >
-              <MenuItem {...menu} handleOpen={handleOpen} />
+              <MenuItem
+                {...menu}
+                handleOpen={handleOpen}
+                showFullMenu={showFullMenu}
+              />
             </Can>
           ))}
         </div>
@@ -54,13 +79,23 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
         <div className="mt-auto flex justify-center pt-4">
           <Button
             onClick={() => {}}
-            className="dark:border-foreground flex w-full items-center justify-start gap-6 border py-6"
+            className={classNames(
+              'dark:border-foreground flex w-full items-center justify-start gap-6 border py-6',
+              {
+                'justify-center': !showFullMenu,
+              },
+            )}
             data-testid="logout-button"
             color="primary"
             variant="bordered"
+            isIconOnly={!showFullMenu}
           >
-            <IoIosLogOut className="text-xl" />
-            <p className="dark:text-foreground text-base font-medium">Logout</p>
+            <IoIosLogOut className="dark:text-foreground text-xl" />
+            {showFullMenu && (
+              <p className="dark:text-foreground text-base font-medium">
+                Logout
+              </p>
+            )}
           </Button>
         </div>
       </div>
@@ -80,10 +115,17 @@ type IMenuItem = {
   id: number;
   route: string;
   icon: IconType;
+  showFullMenu: boolean;
   handleOpen: (isOpen: boolean) => void;
 };
 
-const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
+const MenuItem = ({
+  title,
+  icon: Icon,
+  route,
+  handleOpen,
+  showFullMenu,
+}: IMenuItem) => {
   const currentRoute = usePathname();
   const routeWithoutLocale = `/${currentRoute.split('/').slice(2).join('/')}`;
 
@@ -92,9 +134,10 @@ const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
   return (
     <Button
       className={classNames(
-        'dark:text-foreground w-full justify-start gap-6 rounded-lg py-6 font-medium',
+        'dark:text-foreground flex w-full items-center justify-start gap-6 rounded-lg py-6 font-medium',
         {
           'font-bold': isActive,
+          'justify-center': !showFullMenu,
         },
       )}
       color="primary"
@@ -102,9 +145,10 @@ const MenuItem = ({ title, icon: Icon, route, handleOpen }: IMenuItem) => {
       as={Link}
       href={route}
       onPress={() => handleOpen(false)}
+      isIconOnly={!showFullMenu}
     >
       <Icon className="text-xl" />
-      <p className="text-sm">{title}</p>
+      {showFullMenu && <p className="text-sm">{title}</p>}
     </Button>
   );
 };

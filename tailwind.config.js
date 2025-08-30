@@ -7,7 +7,7 @@ const config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/appPages/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@heroui/theme/dist/components/(button|snippet|code|input).js',
+    './node_modules/@heroui/theme/dist/components/(button|dropdown|user|ripple|spinner|menu|divider|popover|avatar).js',
   ],
   theme: {
     extend: {

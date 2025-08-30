@@ -1,7 +1,7 @@
 'use client';
 
-import classNames from 'classnames';
 import Cookies from 'js-cookie';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -11,6 +11,7 @@ import { LuChevronLeft } from 'react-icons/lu';
 
 import type { SubjectType } from '@casl/ability';
 import { Button } from '@heroui/button';
+import { cn } from '@heroui/theme';
 
 import logo from '@/assets/images/logo.png';
 import RenderIf from '@/components/shared/RenderIf';
@@ -25,9 +26,7 @@ interface ISideBarProps {
 }
 
 export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
-  const [showFullMenu, setShowFullMenu] = useState(
-    Cookies.get('showFullMenu') === 'true',
-  );
+  const [showFullMenu, setShowFullMenu] = useState(true);
 
   const handleShowFullMenu = (isOpen: boolean) => {
     setShowFullMenu(isOpen);
@@ -37,8 +36,8 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
   return (
     <>
       <div
-        className={classNames(
-          'bg-primary-50 transition-width absolute -left-[300px] z-[1001] flex h-full flex-col p-2 transition-transform !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
+        className={cn(
+          'bg-primary-50 md:transition-width absolute -left-[300px] z-[1001] flex h-full flex-col p-2 transition-transform !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
           {
             'left-[1rem]': isOpen,
             'w-[76px]': !showFullMenu,
@@ -50,7 +49,7 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
           isIconOnly
           color="primary"
           variant="solid"
-          className={classNames(
+          className={cn(
             'absolute top-10 -right-3 size-6 min-w-6 rounded-full',
             {
               'rotate-180': !showFullMenu,
@@ -87,7 +86,7 @@ export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
         <div className="mt-auto flex justify-center pt-4">
           <Button
             onClick={() => {}}
-            className={classNames(
+            className={cn(
               'dark:border-foreground flex w-full items-center justify-start gap-6 border py-6',
               {
                 'justify-center': !showFullMenu,
@@ -136,12 +135,13 @@ const MenuItem = ({
 }: IMenuItem) => {
   const currentRoute = usePathname();
   const routeWithoutLocale = `/${currentRoute.split('/').slice(2).join('/')}`;
+  const t = useTranslations('Sidebar');
 
   const isActive = route === routeWithoutLocale;
 
   return (
     <Button
-      className={classNames(
+      className={cn(
         'dark:text-foreground flex w-full items-center justify-start gap-6 rounded-lg py-6 font-medium',
         {
           'font-bold': isActive,
@@ -156,7 +156,7 @@ const MenuItem = ({
       isIconOnly={!showFullMenu}
     >
       <Icon className="text-xl" />
-      {showFullMenu && <p className="text-sm">{title}</p>}
+      {showFullMenu && <p className="text-sm">{t(title)}</p>}
     </Button>
   );
 };

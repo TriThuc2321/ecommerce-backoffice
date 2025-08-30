@@ -1,5 +1,19 @@
 {
   "HomePage": {
     "title": "Xin chào!"
+  },
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "products": "Sản phẩm",
+    "categories": "Danh mục",
+    "orders": "Đơn hàng",
+    "invoices": "Hóa đơn",
+    "blogs": "Bài viết",
+    "users": "Người dùng",
+    "roles": "Vai trò"
+  },
+  "Locale": {
+    "vi": "Tiếng Việt",
+    "en": "Tiếng Anh"
   }
 }

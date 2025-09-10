@@ -1,6 +1,5 @@
 'use client';
 
-import Cookies from 'js-cookie';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -13,6 +12,7 @@ import type { SubjectType } from '@casl/ability';
 import { Button } from '@heroui/button';
 import { cn } from '@heroui/theme';
 
+import { storeFullMenuCookie } from '@/actions';
 import logo from '@/assets/images/logo.png';
 import RenderIf from '@/components/shared/RenderIf';
 import { Can } from '@/configs/casl/can.config';
@@ -23,14 +23,19 @@ import { PermissionAction } from '@/types/auth';
 interface ISideBarProps {
   isOpen: boolean;
   handleOpen: (isOpen: boolean) => void;
+  initialShowFullMenu: boolean;
 }
 
-export default function Sidebar({ isOpen, handleOpen }: ISideBarProps) {
-  const [showFullMenu, setShowFullMenu] = useState(true);
+export default function Sidebar({
+  isOpen,
+  handleOpen,
+  initialShowFullMenu,
+}: ISideBarProps) {
+  const [showFullMenu, setShowFullMenu] = useState(initialShowFullMenu);
 
   const handleShowFullMenu = (isOpen: boolean) => {
     setShowFullMenu(isOpen);
-    Cookies.set('showFullMenu', isOpen.toString());
+    storeFullMenuCookie(isOpen);
   };
 
   return (

@@ -1,14 +1,21 @@
+import { cookies } from 'next/headers';
 import { type ReactNode, Suspense } from 'react';
 
-import MainLayoutClient from '@/components/layouts/mainLayout';
+import MainLayout from '@/components/layouts/mainLayout';
 import Loader from '@/components/shared/Loader';
+import COOKIE from '@/constants/cookie';
 import { AccessProvider } from '@/providers';
 
-type MainLayoutProps = {
+type LayoutProps = {
   children: ReactNode;
 };
 
-export default function MainLayout({ children }: MainLayoutProps) {
+export default async function Layout({ children }: LayoutProps) {
+  const cookieStore = await cookies();
+
+  const initialShowFullMenu =
+    cookieStore.get(COOKIE.SHOW_FULL_MENU)?.value === 'true';
+
   return (
     <AccessProvider>
       <Suspense
@@ -18,7 +25,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
           </div>
         }
       >
-        <MainLayoutClient>{children}</MainLayoutClient>
+        <MainLayout initialShowFullMenu={initialShowFullMenu}>
+          {children}
+        </MainLayout>
       </Suspense>
     </AccessProvider>
   );

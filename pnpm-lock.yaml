@@ -14,12 +14,6 @@ importers:
       '@casl/react':
         specifier: ^5.0.0
         version: 5.0.0(@casl/ability@6.7.3)(react@19.1.1)
-      '@commitlint/cli':
-        specifier: ^19.8.1
-        version: 19.8.1(@types/node@24.3.0)(typescript@5.9.2)
-      '@commitlint/config-conventional':
-        specifier: ^19.8.1
-        version: 19.8.1
       '@heroui/button':
         specifier: ^2.2.24
         version: 2.2.24(@heroui/system@2.4.20(@heroui/theme@2.4.20(tailwindcss@4.1.12))(framer-motion@12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@heroui/theme@2.4.20(tailwindcss@4.1.12))(framer-motion@12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -87,6 +81,12 @@ importers:
         specifier: ^1.4.0
         version: 1.7.0
     devDependencies:
+      '@commitlint/cli':
+        specifier: ^19.8.1
+        version: 19.8.1(@types/node@24.3.0)(typescript@5.9.2)
+      '@commitlint/config-conventional':
+        specifier: ^19.8.1
+        version: 19.8.1
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.3.1

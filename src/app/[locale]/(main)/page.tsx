@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 export default async function Page() {
-  const t = await getTranslations('HomePage');
+  const t = await getTranslations('DashboardPage');
 
   return (
     <div>

@@ -28,17 +28,17 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Toards',
-    default: 'Toards',
+    template: '%s | My English',
+    default: 'My English',
   },
-  description: 'Toards',
+  description: 'My English',
   openGraph: {
     title: {
-      template: '%s | Toards',
-      default: 'Toards',
+      template: '%s | My English',
+      default: 'My English',
     },
-    description: 'Toards Dashboard',
-    images: ['/images/logo.png'],
+    description: 'My English Dashboard',
+    images: ['/images/logo.jpeg'],
   },
 };
 

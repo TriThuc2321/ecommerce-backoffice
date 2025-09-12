@@ -13,7 +13,7 @@ export function ThemeProviders({ children }: ThemeProvidersProps) {
     <ThemeProvider
       attribute="class"
       themes={[ThemeMode.DARK, ThemeMode.LIGHT, ThemeMode.SYSTEM]}
-      defaultTheme={ThemeMode.SYSTEM}
+      defaultTheme={ThemeMode.LIGHT}
       enableSystem
     >
       {children}

@@ -29,7 +29,7 @@ export default function SwitchLocale() {
   };
 
   return (
-    <Dropdown className="bg-primary-50">
+    <Dropdown>
       <DropdownTrigger>
         <Button
           color="primary"
@@ -55,10 +55,9 @@ export default function SwitchLocale() {
           startContent={<FlagVNIcon className={iconClasses} />}
           onPress={() => onSwitchLocale(LOCALE.VI)}
           key="vi"
-          color="primary"
+          color="secondary"
           className={cn({
-            'bg-default text-default-foreground font-bold':
-              locale === LOCALE.VI,
+            'bg-secondary/25 font-bold': locale === LOCALE.VI,
           })}
         >
           {t('vi')}
@@ -67,10 +66,9 @@ export default function SwitchLocale() {
           startContent={<FlagUSIcon className={iconClasses} />}
           onPress={() => onSwitchLocale(LOCALE.EN)}
           key="en"
-          color="primary"
+          color="secondary"
           className={cn({
-            'bg-default text-default-foreground font-bold':
-              locale === LOCALE.EN,
+            'bg-secondary/25 font-bold': locale === LOCALE.EN,
           })}
         >
           {t('en')}

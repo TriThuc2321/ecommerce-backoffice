@@ -1,11 +1,6 @@
-import {
-  IoBagOutline,
-  IoDocumentTextOutline,
-  IoFileTrayFullOutline,
-  IoLayersOutline,
-  IoNewspaperOutline,
-} from 'react-icons/io5';
+import { IoDocumentTextOutline } from 'react-icons/io5';
 import { LuLayoutDashboard, LuRadius, LuUsers } from 'react-icons/lu';
+import { PiChalkboardTeacher, PiStudent } from 'react-icons/pi';
 
 import { SubjectName } from '@/types/auth';
 
@@ -19,38 +14,24 @@ export const MENU_LIST = [
   },
   {
     id: 1,
-    title: 'products',
-    route: '/products',
-    icon: IoFileTrayFullOutline,
-    object: SubjectName.Products,
+    title: 'students',
+    route: '/students',
+    icon: PiStudent,
+    object: SubjectName.Students,
+  },
+  {
+    id: 1,
+    title: 'teachers',
+    route: '/teachers',
+    icon: PiChalkboardTeacher,
+    object: SubjectName.Teachers,
   },
   {
     id: 2,
-    title: 'categories',
-    route: '/categories',
-    icon: IoLayersOutline,
-    object: SubjectName.Categories,
-  },
-  {
-    id: 4,
-    title: 'orders',
-    icon: IoBagOutline,
-    route: '/orders',
-    object: SubjectName.Orders,
-  },
-  {
-    id: 5,
-    title: 'invoices',
-    route: '/invoices',
+    title: 'onlineTests',
+    route: '/online-tests',
     icon: IoDocumentTextOutline,
-    object: SubjectName.Invoices,
-  },
-  {
-    id: 6,
-    title: 'blogs',
-    icon: IoNewspaperOutline,
-    route: '/blogs',
-    object: SubjectName.Blogs,
+    object: SubjectName.OnlineTests,
   },
   {
     id: 7,

@@ -1,19 +1,17 @@
 {
-  "HomePage": {
-    "title": "Xin chào!"
-  },
   "Sidebar": {
     "dashboard": "Dashboard",
-    "products": "Sản phẩm",
-    "categories": "Danh mục",
-    "orders": "Đơn hàng",
-    "invoices": "Hóa đơn",
-    "blogs": "Bài viết",
+    "students": "Học sinh",
+    "teachers": "Giáo viên",
+    "onlineTests": "Đề thi",
     "users": "Người dùng",
     "roles": "Vai trò"
   },
   "Locale": {
     "vi": "Tiếng Việt",
     "en": "Tiếng Anh"
+  },
+  "DashboardPage": {
+    "title": "Bảng điều khiển"
   }
 }

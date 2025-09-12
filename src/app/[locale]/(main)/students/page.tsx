@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export default async function Page() {
-  return <div>Products</div>;
+  return <div>Students</div>;
 }
 
 export const metadata: Metadata = {
-  title: 'Products',
+  title: 'Students',
 };

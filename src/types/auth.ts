@@ -9,11 +9,9 @@ export enum PermissionAction {
 export enum SubjectName {
   All = 'all',
   Dashboard = 'dashboard',
-  Products = 'products',
-  Categories = 'categories',
-  Orders = 'orders',
-  Invoices = 'invoices',
-  Blogs = 'blogs',
+  Students = 'students',
+  Teachers = 'teachers',
+  OnlineTests = 'onlineTests',
   Users = 'users',
   Roles = 'roles',
 }

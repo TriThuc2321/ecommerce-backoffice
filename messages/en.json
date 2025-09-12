@@ -1,19 +1,17 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
-  },
   "Sidebar": {
     "dashboard": "Dashboard",
-    "products": "Products",
-    "categories": "Categories",
-    "orders": "Orders",
-    "invoices": "Invoices",
-    "blogs": "Blogs",
+    "students": "Students",
+    "teachers": "Teachers",
+    "onlineTests": "Online Tests",
     "users": "Users",
     "roles": "Roles"
   },
   "Locale": {
     "vi": "Vietnamese",
     "en": "English"
+  },
+  "DashboardPage": {
+    "title": "Dashboard"
   }
 }

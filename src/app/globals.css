@@ -10,6 +10,6 @@
   }
 
   body {
-    @apply text-foreground bg-primary-50 m-0 h-full w-full p-0;
+    @apply text-content2-foreground bg-background dark:bg-secondary-100 m-0 h-full w-full p-0;
   }
 }

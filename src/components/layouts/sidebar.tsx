@@ -13,6 +13,7 @@ import { Button } from '@heroui/button';
 import { cn } from '@heroui/theme';
 
 import { storeFullMenuCookie } from '@/actions';
+import logoHorizontal from '@/assets/images/logo-horizontal.png';
 import logo from '@/assets/images/logo.png';
 import RenderIf from '@/components/shared/RenderIf';
 import { Can } from '@/configs/casl/can.config';
@@ -42,7 +43,7 @@ export default function Sidebar({
     <>
       <div
         className={cn(
-          'bg-primary-50 md:transition-width absolute -left-[300px] z-[1001] flex h-full flex-col p-2 transition-transform !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
+          'bg-background dark:bg-secondary-100 md:transition-width absolute -left-[300px] z-[1001] flex h-full flex-col p-2 transition-transform !duration-[0.3s] max-md:max-h-[calc(100vh-32px)] lg:relative lg:left-0',
           {
             'left-[1rem]': isOpen,
             'w-[76px]': !showFullMenu,
@@ -54,25 +55,24 @@ export default function Sidebar({
           isIconOnly
           color="primary"
           variant="solid"
-          className={cn(
-            'absolute top-10 -right-3 size-6 min-w-6 rounded-full',
-            {
-              'rotate-180': !showFullMenu,
-            },
-          )}
+          className={cn('absolute top-8 -right-3 size-6 min-w-6 rounded-full', {
+            'rotate-180': !showFullMenu,
+          })}
           onPress={() => handleShowFullMenu(!showFullMenu)}
         >
           <LuChevronLeft className="text-lg" />
         </Button>
         <Link href="/">
           <Image
-            className="mx-auto mt-4 size-14 rounded-md"
-            src={logo}
+            className="mx-auto mt-4 object-contain"
+            src={showFullMenu ? logoHorizontal : logo}
             alt="Logo"
+            width={showFullMenu ? 180 : 32}
+            height={32}
           />
         </Link>
 
-        <div className="flex h-full flex-col gap-2 overflow-y-auto py-4">
+        <div className="mt-2 flex h-full flex-col gap-2 overflow-y-auto py-4">
           {MENU_LIST.map(menu => (
             <Can
               I={PermissionAction.Read}
@@ -92,22 +92,17 @@ export default function Sidebar({
           <Button
             onClick={() => {}}
             className={cn(
-              'dark:border-foreground flex w-full items-center justify-start gap-6 border py-6',
+              'flex w-full items-center justify-start gap-6 border py-6',
               {
                 'justify-center': !showFullMenu,
               },
             )}
-            data-testid="logout-button"
             color="primary"
             variant="bordered"
             isIconOnly={!showFullMenu}
           >
-            <IoIosLogOut className="dark:text-foreground text-xl" />
-            {showFullMenu && (
-              <p className="dark:text-foreground text-base font-medium">
-                Logout
-              </p>
-            )}
+            <IoIosLogOut className="text-xl" />
+            {showFullMenu && <p className="text-sm">Logout</p>}
           </Button>
         </div>
       </div>
@@ -147,9 +142,10 @@ const MenuItem = ({
   return (
     <Button
       className={cn(
-        'dark:text-foreground flex w-full items-center justify-start gap-6 rounded-lg py-6 font-medium',
+        'flex w-full items-center justify-start gap-6 rounded-lg py-6 font-medium',
         {
-          'font-bold': isActive,
+          'text-primary font-bold': isActive,
+          'text-content2-foreground hover:text-primary/85': !isActive,
           'justify-center': !showFullMenu,
         },
       )}

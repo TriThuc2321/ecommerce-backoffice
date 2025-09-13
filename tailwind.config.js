@@ -246,6 +246,11 @@ const config = {
       },
       layout: {
         disabledOpacity: '0.5',
+        borderWidth: {
+          small: '1px',
+          medium: '1px',
+          large: '2px',
+        },
       },
     }),
   ],

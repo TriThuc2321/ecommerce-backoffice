@@ -15,7 +15,7 @@ const ThemeSwitch = () => {
     'h-8 min-h-8 w-8 min-w-8 rounded-full border-typography-secondary';
 
   return (
-    <div className="absolute right-4 bottom-4 z-50 flex gap-2 rounded-full border p-1">
+    <div className="absolute right-4 bottom-4 z-50 flex gap-2 rounded-full p-1">
       <Button
         className={classNames(buttonClass, {
           'bg-typography-secondary': theme === ThemeMode.LIGHT,

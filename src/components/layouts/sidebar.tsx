@@ -91,12 +91,9 @@ export default function Sidebar({
         <div className="mt-auto flex justify-center pt-4">
           <Button
             onClick={() => {}}
-            className={cn(
-              'flex w-full items-center justify-start gap-6 border py-6',
-              {
-                'justify-center': !showFullMenu,
-              },
-            )}
+            className={cn('flex w-full items-center justify-start gap-6 py-6', {
+              'justify-center': !showFullMenu,
+            })}
             color="primary"
             variant="bordered"
             isIconOnly={!showFullMenu}

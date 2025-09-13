@@ -5,7 +5,12 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
 import { routing } from '@/i18n/routing';
-import { AccessProvider, HeroUIProvider, ThemeProviders } from '@/providers';
+import {
+  AccessProvider,
+  HeroUIProvider,
+  ReactQueryProvider,
+  ThemeProviders,
+} from '@/providers';
 
 import '../globals.css';
 
@@ -63,13 +68,15 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider>
-          <HeroUIProvider>
-            <ThemeProviders>
-              <AccessProvider>{children}</AccessProvider>
-            </ThemeProviders>
-          </HeroUIProvider>
-        </NextIntlClientProvider>
+        <ReactQueryProvider>
+          <NextIntlClientProvider>
+            <HeroUIProvider>
+              <ThemeProviders>
+                <AccessProvider>{children}</AccessProvider>
+              </ThemeProviders>
+            </HeroUIProvider>
+          </NextIntlClientProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

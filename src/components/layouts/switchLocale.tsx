@@ -31,12 +31,7 @@ export default function SwitchLocale() {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button
-          color="primary"
-          variant="light"
-          isIconOnly
-          className="rounded-full"
-        >
+        <Button variant="light" isIconOnly className="rounded-xl">
           {locale === LOCALE.VI ? (
             <FlagVNIcon className={iconClasses} />
           ) : (

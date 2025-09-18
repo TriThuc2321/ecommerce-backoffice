@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
 import { routing } from '@/i18n/routing';
@@ -10,19 +9,11 @@ import {
   HeroUIProvider,
   ReactQueryProvider,
   ThemeProviders,
+  ToastProvider,
 } from '@/providers';
 
 import '../globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { geistMono, geistSans } from './fonts';
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'vi' }];
@@ -30,22 +21,6 @@ export async function generateStaticParams() {
 
 export const experimental_ppr = true;
 export const dynamic = 'force-dynamic';
-
-export const metadata: Metadata = {
-  title: {
-    template: '%s | My English',
-    default: 'My English',
-  },
-  description: 'My English',
-  openGraph: {
-    title: {
-      template: '%s | My English',
-      default: 'My English',
-    },
-    description: 'My English Dashboard',
-    images: ['/images/logo.jpeg'],
-  },
-};
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -71,6 +46,7 @@ export default async function RootLayout({
         <ReactQueryProvider>
           <NextIntlClientProvider>
             <HeroUIProvider>
+              <ToastProvider placement="top-center" toastOffset={30} />
               <ThemeProviders>
                 <AccessProvider>{children}</AccessProvider>
               </ThemeProviders>
@@ -81,3 +57,19 @@ export default async function RootLayout({
     </html>
   );
 }
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | My English',
+    default: 'My English',
+  },
+  description: 'My English',
+  openGraph: {
+    title: {
+      template: '%s | My English',
+      default: 'My English',
+    },
+    description: 'My English Dashboard',
+    images: ['/images/logo.jpeg'],
+  },
+};

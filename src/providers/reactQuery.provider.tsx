@@ -15,7 +15,7 @@ export const ReactQueryProvider = ({
   return (
     <QueryClientProvider client={queryClient} {...rest}>
       {children}
-      <ReactQueryDevtools initialIsOpen={false} buttonPosition="top-left" />
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };

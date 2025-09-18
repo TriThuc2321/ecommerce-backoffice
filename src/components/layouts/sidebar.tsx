@@ -18,6 +18,7 @@ import logo from '@/assets/images/logo.png';
 import RenderIf from '@/components/shared/RenderIf';
 import { Can } from '@/configs/casl/can.config';
 import { MENU_LIST } from '@/configs/menu';
+import { useLogout } from '@/hooks/apis/auth';
 import { Link } from '@/i18n/navigation';
 import { PermissionAction } from '@/types/auth';
 
@@ -33,6 +34,8 @@ export default function Sidebar({
   initialShowFullMenu,
 }: ISideBarProps) {
   const [showFullMenu, setShowFullMenu] = useState(initialShowFullMenu);
+
+  const { mutate: logout } = useLogout();
 
   const handleShowFullMenu = (isOpen: boolean) => {
     setShowFullMenu(isOpen);
@@ -90,7 +93,7 @@ export default function Sidebar({
 
         <div className="mt-auto flex justify-center pt-4">
           <Button
-            onClick={() => {}}
+            onPress={() => logout()}
             className={cn('flex w-full items-center justify-start gap-6 py-6', {
               'justify-center': !showFullMenu,
             })}

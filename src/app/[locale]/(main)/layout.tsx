@@ -9,7 +9,7 @@ import COOKIE from '@/constants/cookie';
 import { REACT_QUERY_KEYS } from '@/constants/reactQuery';
 import { AccessProvider } from '@/providers';
 import { getQueryClient } from '@/providers/reactQuery.config';
-import { userApi } from '@/services/api';
+import { userApi } from '@/services/apis';
 import { setHeaderCookies } from '@/services/axios-instance';
 
 type LayoutProps = {
